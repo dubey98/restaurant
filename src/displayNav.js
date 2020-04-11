@@ -1,5 +1,5 @@
 import {
-    createMain
+    displayMain
 } from "./displayMain.js";
 
 const content = document.querySelector('.content');
@@ -43,16 +43,16 @@ function handleClick(e) {
     const main = document.querySelector('.main');
     switch (callingElement) {
         case "nav-bar-logo":
-            content.replaceChild(createMain('home'), main);
+            content.replaceChild(displayMain.createMain('home'), main);
             break;
         case "nav-bar-menu":
-            content.replaceChild(createMain('menu'), main);
+            content.replaceChild(displayMain.createMain('menu'), main);
             break;
         case "nav-bar-contact":
-            content.replaceChild(createMain('contact'), main);
+            content.replaceChild(displayMain.createMain('contact'), main);
             break;
         case "nav-bar-presence":
-            content.replaceChild(createMain('presence'), main);
+            content.replaceChild(displayMain.createMain('presence'), main);
             break;
         default:
             console.warning(`failed to load ${callingElement}`)

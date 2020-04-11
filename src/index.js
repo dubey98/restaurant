@@ -2,7 +2,7 @@ import {
     createNav
 } from "./displayNav.js";
 import {
-    createMain
+    displayMain
 } from "./displayMain.js";
 import {
     createFooter
@@ -11,5 +11,5 @@ import {
 const content = document.querySelector('.content');
 
 content.appendChild(createNav());
-content.appendChild(createMain('home'));
+content.appendChild(displayMain.createMain('home'));
 content.appendChild(createFooter());
