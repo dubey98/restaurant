@@ -23,11 +23,8 @@ export const displayMain = (function () {
         const main = document.createElement('div');
         main.classList.add('main');
 
-        const image = document.createElement('img');
-        image.setAttribute("src", "images/home_007.jpeg");
-        image.classList.add('main-images');
-        main.appendChild(image);
-
+        const carousal = document.querySelector('.main-carousal-container');
+        carousal.style.display = "block";
         const description = document.createElement('div');
 
         description.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus beatae id fugiat quam eum obcaecati voluptatem nisi nesciunt. Earum fugit corrupti repellat molestias velit esse doloribus quo dolorum ipsum est.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus beatae id fugiat quam eum obcaecati voluptatem nisi nesciunt. Earum fugit corrupti repellat molestias velit esse doloribus quo dolorum ipsum est.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus beatae id fugiat quam eum obcaecati voluptatem nisi nesciunt. Earum fugit corrupti repellat molestias velit esse doloribus quo dolorum ipsum est.";
@@ -38,8 +35,9 @@ export const displayMain = (function () {
     };
 
     function createMenu() {
-        const main = document.createElement('div');
-        main.classList.add('main');
+        const main = document.createElement('main');
+        const main2 = document.createElement('div');
+        main2.classList.add('main');
         const menuInfo = {
             "card1": {
                 "url": "images/food_001.jpeg",
@@ -76,14 +74,16 @@ export const displayMain = (function () {
 
             menuCard.appendChild(div);
             menuCard.appendChild(cardContent);
-            main.appendChild(menuCard);
+            main2.appendChild(menuCard);
         }
+        main.appendChild(main2);
         return main;
     }
 
     function createPresence() {
-        const main = document.createElement('div');
-        main.classList.add('main');
+        const main = document.createElement('main');
+        const main2 = document.createElement('div');
+        main2.classList.add('main');
         const presenceInfo = {
             "Goa": {
                 "url": "images/home_005.jpeg",
@@ -106,20 +106,22 @@ export const displayMain = (function () {
             div.classList.add(`${presenceInfo[prop].class}`);
             div.style.cssText = `background-image:url(${presenceInfo[prop].url});`;
             div.innerHTML = `${presenceInfo[prop].desc}`;
-            main.appendChild(div);
+            main2.appendChild(div);
         }
+        main.appendChild(main2);
         return main;
     }
 
     function createContact() {
-        const main = document.createElement('div');
-        main.classList.add('main');
+        const main = document.createElement('main');
+        const main2 = document.createElement('div');
+        main2.classList.add('main');
 
         const div = document.createElement('div');
         div.innerHTML = "Contact Info goes here";
         div.classList.add('main-images');
-        main.appendChild(div);
-
+        main2.appendChild(div);
+        main.appendChild(main2);
         return main;
     }
 

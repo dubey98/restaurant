@@ -6,11 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant</title>
   <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/carousal.css">
 </head>
 
 <body>
   <div class="content">
+    <nav></nav>
+    <main>
+      <div class="main-carousal-container">
+        <div class="carousal-container">
+          <div class="prev" onclick="advanceSlides(-1)">&#10094;</div>
+          <div class="next" onclick="advanceSlides(1)">&#10095;</div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_001.jpeg" alt="home_001" class="slide">
+          </div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_002.jpeg" alt="home_001" class="slide">
+          </div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_003.jpeg" alt="home_001" class="slide">
+          </div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_004.jpeg" alt="home_001" class="slide">
+          </div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_005.jpeg" alt="home_001" class="slide">
+          </div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_006.jpeg" alt="home_001" class="slide">
+          </div>
+          <div class="inactive carousal-slide">
+            <div class="text">Caption 1</div>
+            <img src="images/home_007.jpeg" alt="home_001" class="slide">
+          </div>
 
+        </div>
+
+        <div class="carousal-nav">
+          <span class="dots" onclick="currentSlide(1)"></span>
+          <span class="dots" onclick="currentSlide(2)"></span>
+          <span class="dots" onclick="currentSlide(3)"></span>
+          <span class="dots" onclick="currentSlide(4)"></span>
+          <span class="dots" onclick="currentSlide(5)"></span>
+          <span class="dots" onclick="currentSlide(6)"></span>
+          <span class="dots" onclick="currentSlide(7)"></span>
+        </div>
+      </div>
+    </main>
+    <footer>
+    </footer>
   </div>
   <script src="main.js"></script>
 </body>

@@ -40,7 +40,7 @@ export function createNav() {
 
 function handleClick(e) {
     const callingElement = e.toElement.id;
-    const main = document.querySelector('.main');
+    const main = document.querySelector('main');
     switch (callingElement) {
         case "nav-bar-logo":
             content.replaceChild(displayMain.createMain('home'), main);
