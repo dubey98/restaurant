@@ -19,21 +19,127 @@ export const displayMain = (function () {
         }
     }
 
+    function show() {
+        let not = 1;
+        const id = setInterval(advanceSlide, 5000);
+
+        function advanceSlide(n = 1) {
+            slideShow(not += n);
+        }
+
+        function currentSlide(n) {
+            slideShow(not = n);
+        }
+
+
+        function slideShow(n) {
+            const e = document.querySelectorAll(".carousal-slide");
+            const d = document.querySelectorAll('.dots');
+            for (let k = 0; k < e.length; k++) {
+                e[k].classList.remove('active');
+                e[k].classList.add('inactive');
+            }
+            const num = (n + 3) % 4;
+            e[num - 1].classList.add('active');
+        }
+        return {
+            currentSlide,
+            advanceSlide,
+        }
+    };
+
     function createHome() {
         const main = document.createElement('div');
         main.classList.add('main');
 
-        const image = document.createElement('img');
-        image.setAttribute("src", "images/home_007.jpeg");
-        image.classList.add('main-images');
-        main.appendChild(image);
+        const mainc = document.createElement('div');
+        mainc.classList.add('main-carousal-container');
+
+        const cc = document.createElement('div');
+        cc.classList.add('carousal-container');
+
+        const prev = document.createElement('div');
+        prev.classList.add('prev');
+        prev.innerHTML = '&#10094;';
+        prev.addEventListener('click', (e) => show().advanceSlide(-1));
+        cc.appendChild(prev);
+
+        const next = document.createElement('div');
+        next.classList.add('next');
+        next.innerHTML = '&#10095;';
+        next.addEventListener('click', (e) => show().advanceSlide(1));
+        cc.appendChild(next);
+
+        let data = {
+            d1: {
+                class1: "active",
+                html: "Caption 1",
+                textClass: "text",
+                src: "images/home_001.jpeg",
+                alt: "home_001",
+                imgClass: "slide"
+            },
+            d2: {
+                class1: "inactive",
+                html: "Caption 1",
+                textClass: "text",
+                src: "images/home_002.jpeg",
+                alt: "home_002",
+                imgClass: "slide"
+            },
+            d3: {
+                class1: "inactive",
+                html: "Caption 1",
+                textClass: "text",
+                src: "images/home_003.jpeg",
+                alt: "home_003",
+                imgClass: "slide"
+            },
+            d4: {
+                class1: "inactive",
+                html: "Caption 1",
+                textClass: "text",
+                src: "images/home_004.jpeg",
+                alt: "home_004",
+                imgClass: "slide"
+            }
+        }
+
+        for (let k in data) {
+            const d1 = document.createElement('div');
+            d1.classList.add(data[k].class1);
+            d1.classList.add('carousal-slide');
+            const d11 = document.createElement('div');
+            d11.innerHTML = data[k].html;
+            d11.classList.add('text');
+            const i1 = document.createElement('img');
+            i1.setAttribute('src', `${data[k].src}`)
+            i1.classList.add(data[k].imgClass);
+            d1.appendChild(d11);
+            d1.appendChild(i1);
+            cc.appendChild(d1);
+        }
+
+        const dd = document.createElement('div');
+        dd.classList.add("carousal-nav");
+
+        for (let i = 1; i < 5; i++) {
+            const span = document.createElement('span');
+            span.classList.add('dots');
+            span.addEventListener('click', (e) => show().currentSlide(i));
+            dd.appendChild(span);
+        }
+        mainc.appendChild(cc);
+        mainc.appendChild(dd);
+
+        main.appendChild(mainc);
 
         const description = document.createElement('div');
 
         description.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus beatae id fugiat quam eum obcaecati voluptatem nisi nesciunt. Earum fugit corrupti repellat molestias velit esse doloribus quo dolorum ipsum est.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus beatae id fugiat quam eum obcaecati voluptatem nisi nesciunt. Earum fugit corrupti repellat molestias velit esse doloribus quo dolorum ipsum est.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus beatae id fugiat quam eum obcaecati voluptatem nisi nesciunt. Earum fugit corrupti repellat molestias velit esse doloribus quo dolorum ipsum est.";
         description.classList.add('main-about');
         main.appendChild(description);
-
+        show();
         return main;
     };
 
